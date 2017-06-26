@@ -14,7 +14,8 @@ export default class MyVReact extends React.Component {
     this._handleClick = this._handleClick.bind(this)
   }
 
-  _handleClick(){
+  _handleClick(e){
+    console.log(e.target)
     this.setState({
       date: this.state.date + 1
     })
@@ -23,11 +24,12 @@ export default class MyVReact extends React.Component {
     return (
       <View>
         <Pano 
-          source={asset('chess-world.jpg')}
+          source={asset('360.png')}
         />
         <Text
           style={{
             backgroundColor: 'red',
+            borderRadius: 50,
             fontSize: 0.8,
             fontWeight: '400',
             layoutOrigin: [0.5, 0.5],
@@ -41,6 +43,9 @@ export default class MyVReact extends React.Component {
           >
           {this.state.date}
         </Text>
+        <View style={{ margin: 0.1, height: 30, backgroundColor: 'blue'}}>
+          <Text style={{ fontSize: 2, textAlign: 'center'}}>Press Me!</Text>
+        </View>
       </View>
     );
   }
