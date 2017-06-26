@@ -10,10 +10,14 @@ import {
 export default class MyVReact extends React.Component {
   constructor(props){
     super(props)
+    this.state = { date : 0 }
     this._handleClick = this._handleClick.bind(this)
   }
+
   _handleClick(){
-    console.log("hola")
+    this.setState({
+      date: this.state.date + 1
+    })
   }
   render() {
     return (
@@ -35,7 +39,7 @@ export default class MyVReact extends React.Component {
           }}
           onEnter={this._handleClick}
           >
-          Camilo
+          {this.state.date}
         </Text>
       </View>
     );
